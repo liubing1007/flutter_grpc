@@ -1,0 +1,29 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "io.grpc.izhaohu.senior";
+option java_outer_classname = "SaveSeniorBack";
+option objc_class_prefix = "HLW";
+
+package auth;
+
+service SaveSeniorBackServer {
+  rpc saveSeniorBack (SaveSeniorBackRequest) returns (SaveSeniorBackReply) {}
+}
+
+message SaveSeniorBackRequest {
+  string cmd = 1;
+  string udid = 2;
+  string user_name = 3;
+  string ticket = 4;
+  int32 seniorId = 5;
+  int32 timeFlag = 6;
+  int32 cognitiveType = 7;
+  int32 backable = 8;
+  int32 outFlag = 9;
+  string desc = 10;
+}
+
+message SaveSeniorBackReply {
+  int32 code = 1;
+  string error = 2;
+}

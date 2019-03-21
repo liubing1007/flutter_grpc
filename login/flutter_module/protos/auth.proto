@@ -1,0 +1,31 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "io.grpc.izhaohu.auth";
+option java_outer_classname = "AuthProto";
+option objc_class_prefix = "HLW";
+
+package auth;
+
+service AuthServer {
+  rpc auth (AuthRequest) returns (AuthReply) {}
+}
+
+message AuthRequest {
+  string pwd = 1; //密码
+  string user_name = 2; //用户名
+  string udid = 3;
+  string manufacturer = 4;
+  string model = 5;
+  string os_version = 6;
+  string app_version = 7;
+  string token = 8;
+  string app_type = 9;
+  string type = 10;
+}
+
+message AuthReply {
+  int32 code = 1;
+  string ticket = 2;
+  int32 accountId = 3;
+  string error = 4;
+}

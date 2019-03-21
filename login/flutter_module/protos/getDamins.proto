@@ -1,0 +1,62 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "io.grpc.izhaohu.damins";
+option java_outer_classname = "GetDaminsProto";
+option objc_class_prefix = "HLW";
+
+package auth;
+
+service DaminsServer {
+  rpc getDamins (DaminRequest) returns (DaminReply) {}
+}
+
+message DaminRequest {
+  string cmd = 1;
+  string udid = 2;
+  string user_name = 3;
+  string ticket = 4;
+}
+
+message DaminReply {
+  int32 code = 1;
+  string error = 2;
+  repeated Domain domains = 3;
+}
+
+message Domain {
+  int32 id = 1;
+  string name = 2;
+  int32 attempt = 3;
+  string displayName = 4;
+  string description = 5;
+  int32 salaryPerHour = 6;
+  string email = 7;
+  string phone = 8;
+  string tel = 9;
+  string creationTime = 10;
+  string lastModified = 11;
+  int32 status = 12;
+  AddressInfo addressInfo = 13;
+  bool bookOnline = 14;
+  bool appointmentVisit = 15;
+  int32 seniorTotal = 16;
+  int32 wokerTotal = 18;
+  int32 bedTotal = 19;
+  bool withdrawFlag = 20;
+  int32 type = 21;
+  int32 businessMode = 22;
+
+}
+message AddressInfo {
+  int32 id = 1;
+  string streetLine = 2;
+  string city = 3;
+  string state = 4;
+  string country = 5;
+  string zipCode = 6;
+  string lat = 7;
+  string lng = 8;
+  string district = 9;
+}
+
+

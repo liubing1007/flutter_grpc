@@ -1,0 +1,94 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter --no-color packages get
+
+## exception
+
+YamlException: Error on line 44, column 3: Duplicate mapping key.
+  json_serializable: ^2.0.0
+  ^^^^^^^^^^^^^^^^^
+
+```
+#0      Loader._loadMapping (package:yaml/src/loader.dart:167:9)
+#1      Loader._loadNode (package:yaml/src/loader.dart:86:16)
+#2      Loader._loadMapping (package:yaml/src/loader.dart:165:19)
+#3      Loader._loadNode (package:yaml/src/loader.dart:86:16)
+#4      Loader._loadDocument (package:yaml/src/loader.dart:62:20)
+#5      Loader.load (package:yaml/src/loader.dart:54:20)
+#6      loadYamlDocument (package:yaml/yaml.dart:51:25)
+#7      loadYamlNode (package:yaml/yaml.dart:42:5)
+#8      loadYaml (package:yaml/yaml.dart:34:5)
+#9      FlutterManifest.createFromString (package:flutter_tools/src/flutter_manifest.dart:42:28)
+<asynchronous suspension>
+#10     FlutterManifest.createFromPath (package:flutter_tools/src/flutter_manifest.dart:36:12)
+<asynchronous suspension>
+#11     FlutterProject._readManifest (package:flutter_tools/src/project.dart:128:60)
+<asynchronous suspension>
+#12     FlutterProject.fromDirectory (package:flutter_tools/src/project.dart:42:44)
+<asynchronous suspension>
+#13     FlutterProject.fromPath (package:flutter_tools/src/project.dart:57:58)
+#14     PackagesGetCommand.runCommand (package:flutter_tools/src/commands/packages.dart:83:61)
+<asynchronous suspension>
+#15     FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:538:18)
+#16     _asyncThenWrapperHelper.<anonymous closure> (dart:async/runtime/libasync_patch.dart:77:64)
+#17     _rootRunUnary (dart:async/zone.dart:1132:38)
+#18     _CustomZone.runUnary (dart:async/zone.dart:1029:19)
+#19     _FutureListener.handleValue (dart:async/future_impl.dart:126:18)
+#20     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:639:45)
+#21     Future._propagateToListeners (dart:async/future_impl.dart:668:32)
+#22     Future._complete (dart:async/future_impl.dart:473:7)
+#23     _SyncCompleter.complete (dart:async/future_impl.dart:51:12)
+#24     _AsyncAwaitCompleter.complete.<anonymous closure> (dart:async/runtime/libasync_patch.dart:33:20)
+#25     _rootRun (dart:async/zone.dart:1124:13)
+#26     _CustomZone.run (dart:async/zone.dart:1021:19)
+#27     _CustomZone.bindCallback.<anonymous closure> (dart:async/zone.dart:947:23)
+#28     _microtaskLoop (dart:async/schedule_microtask.dart:41:21)
+#29     _startMicrotaskLoop (dart:async/schedule_microtask.dart:50:5)
+#30     _runPendingImmediateCallback (dart:isolate/runtime/libisolate_patch.dart:115:13)
+#31     _RawReceivePortImpl._handleMessage (dart:isolate/runtime/libisolate_patch.dart:172:5)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel master, v1.1.8-pre.13, on Microsoft Windows [Version 10.0.17134.648], locale zh-CN)
+    • Flutter version 1.1.8-pre.13 at D:\FlutterSDK\flutter
+    • Framework revision 6d6f5f6512 (10 weeks ago), 2019-01-08 22:04:28 -0800
+    • Engine revision e5ec3cf3ea
+    • Dart version 2.1.1 (build 2.1.1-dev.0.1 2cb346bd0c)
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 28.0.3)
+    • Android SDK at D:\Sdk
+    • Android NDK location not configured (optional; useful for native profiling support)
+    • Platform android-28, build-tools 28.0.3
+    • Java binary at: D:\android_rj\jre\bin\java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1024-b02)
+    • All Android licenses accepted.
+
+[!] Android Studio (version 3.0)
+    • Android Studio at C:\Program Files\Android\Android Studio
+    • Flutter plugin version 23.2.1
+    • Dart plugin version 171.4424
+    ✗ Unable to determine bundled Java version.
+    • Try updating or re-installing Android Studio.
+
+[✓] Android Studio (version 3.1)
+    • Android Studio at D:\android_rj
+    • Flutter plugin version 29.0.1
+    • Dart plugin version 173.4700
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1024-b02)
+
+[!] IntelliJ IDEA Ultimate Edition (version 2018.2)
+    • IntelliJ at C:\Users\blandon\AppData\Roaming\JetBrains\IntelliJ IDEA 2018.2.7
+    ✗ Flutter plugin not installed; this adds Flutter specific functionality.
+    ✗ Dart plugin not installed; this adds Dart specific functionality.
+    • For information about installing plugins, see
+      https://flutter.io/intellij-setup/#installing-the-plugins
+
+[✓] Connected device (1 available)
+    • SM A7000 • 6698da96 • android-arm • Android 6.0.1 (API 23)
+
+! Doctor found issues in 2 categories.
+```
